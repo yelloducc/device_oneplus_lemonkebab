@@ -1,1 +1,9 @@
+allow cameraserver hal_cameraHIDL_hwservice:hwservice_manager find;
+allow cameraserver derp_data_file:file rw_file_perms;
+allow cameraserver derp_data_file:dir write;
+allow cameraserver system_data_file:dir { add_name write };
+allow cameraserver hal_cameraHIDL_hwservice:hwservice_manager { find };
+allow cameraserver system_data_file:file { create };
+allow cameraserver system_prop:file { create };
+allow cameraserver system_prop:property_service { set };
 binder_call(cameraserver, hal_cameraHIDL_default)

@@ -26,6 +26,9 @@ $(call inherit-product, vendor/oneplus/lemonkebab/lemonkebab-vendor.mk)
 # Inherit WfdCommon from vendor/oneplus/extras
 $(call inherit-product, vendor/oneplus/extras/WfdCommon.mk)
 
+# Inherit packages from vendor/oneplus/apps/sm8250
+$(call inherit-product, vendor/oneplus/apps/sm8250/config.mk)
+
 # Additional native libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
@@ -202,8 +205,9 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
-    Snap \
-    vendor.qti.hardware.camera.postproc@1.0.vendor
+    libcamera2ndk_vendor \
+    vendor.qti.hardware.camera.postproc@1.0.vendor \
+    android.frameworks.displayservice@1.0.vendor
 
 # Common init scripts
 PRODUCT_PACKAGES += \
@@ -218,6 +222,7 @@ PRODUCT_PACKAGES += \
     init.oem.sec.rc \
     init.oem_ftm.rc \
     init.oplus_chg.sh \
+    init.opcamera.rc \
     init.qcom.class_core.sh \
     init.qcom.coex.sh \
     init.qcom.early_boot.sh \
@@ -321,6 +326,9 @@ PRODUCT_PACKAGES += \
 
 # HIDL
 PRODUCT_PACKAGES += \
+    libhidltransport \
+    libhidltransport.vendor \
+    libhwbinder \
     libhwbinder.vendor
 
 # HotwordEnrollement app permissions
@@ -600,7 +608,7 @@ PRODUCT_PACKAGES += \
     OnePlus8TWifiOverlay
 
 # API Level
-PRODUCT_SHIPPING_API_LEVEL := 31
+PRODUCT_SHIPPING_API_LEVEL := 30
 
 PRODUCT_BUILD_SUPER_PARTITION := true
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
