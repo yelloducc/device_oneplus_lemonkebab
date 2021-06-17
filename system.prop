@@ -16,6 +16,11 @@ persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
 
 # Camera
 camera.disable_zsl_mode=true
+persist.camera.assert.panic=true
+persist.camera.privapp.list=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap,com.oneplus.camera
+persist.vendor.camera.privapp.list=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap,com.oneplus.camera
+ro.opcamera.support=true
+vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap,com.oneplus.camera
 
 # Charger
 ro.charger.disable_init_blank=true
@@ -28,6 +33,9 @@ pm.dexopt.install=speed-profile
 pm.dexopt.bg-dexopt=speed-profile
 pm.dexopt.boot=verify
 pm.dexopt.first-boot=quicken
+
+# Codec2 for audio and OMX for Video
+debug.stagefright.ccodec=1
 
 # Display
 debug.gralloc.gfx_ubwc_disable=0
@@ -73,6 +81,10 @@ persist.mm.enable.prefetch=true
 
 # Netflix
 ro.netflix.bsp_rev=Q8250-19134-1
+
+# OnePlus
+ro.vendor.product.manufacturer.db=OP_PHONE
+ro.vendor.product.device.db=OP_DEVICE
 
 # Perf
 ro.vendor.qti.core_ctl_max_cpu=4

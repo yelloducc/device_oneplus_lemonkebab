@@ -1,0 +1,5 @@
+on boot
+    mkdir /data/misc/derp/ 0770 cameraserver audio
+    write /data/misc/derp/client_package_name "com.oneplus.camera"
+    chown cameraserver audio /data/misc/derp/client_package_name
+    chmod 0644 /data/misc/derp/client_package_name
