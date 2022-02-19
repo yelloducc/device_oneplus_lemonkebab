@@ -27,7 +27,7 @@ $(call inherit-product, vendor/oneplus/lemonkebab/lemonkebab-vendor.mk)
 $(call inherit-product, vendor/oneplus/extras/WfdCommon.mk)
 
 # Inherit packages from vendor/oneplus/apps/sm8250
-$(call inherit-product, vendor/oneplus/apps/sm8250/config.mk)
+#$(call inherit-product, vendor/oneplus/apps/sm8250/config.mk)
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \
@@ -36,7 +36,7 @@ PRODUCT_COPY_FILES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-derp
+    $(LOCAL_PATH)/overlay-bliss
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
@@ -432,10 +432,6 @@ PRODUCT_PACKAGES += \
     libvndfwk_detect_jni.qti \
     libvndfwk_detect_jni.qti.vendor
 
-# Remove unwanted packages
-PRODUCT_PACKAGES += \
-    RemovePackages
-
 # RIL
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
@@ -478,10 +474,6 @@ PRODUCT_COPY_FILES += \
 # Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0-service.qti
-
-# Touch
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.oneplus_kona
 
 # tri-state-key
 PRODUCT_PACKAGES += \
